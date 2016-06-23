@@ -92,6 +92,8 @@ namespace MicroMonitor
             {
                 trayIcon.Icon = new Icon(SystemIcons.Error, 40, 40);
             }
+
+            this.uxLastUpdated.Text = string.Format("Last updated: {0}", DateTime.Now.ToString());
         }
 
         private string StatusToMessage(IPStatus status)

@@ -41,7 +41,7 @@ namespace MicroMonitor
             // can of course use your own custom icon too.
             trayIcon = new NotifyIcon();
             trayIcon.Text = "Micro Monitor";
-            trayIcon.Icon = new Icon(SystemIcons.Application, 40, 40);
+            trayIcon.Icon = new Icon(this.AppIcon, 40, 40);
             trayIcon.DoubleClick += (s2, e2) => this.Show();
 
             // Add menu to tray icon and show it.
@@ -92,9 +92,15 @@ namespace MicroMonitor
             {
                 trayIcon.Icon = new Icon(SystemIcons.Error, 40, 40);
             }
+            else
+            {
+                trayIcon.Icon = new Icon(this.AppIcon, 40, 40);
+            }
 
             this.uxLastUpdated.Text = string.Format("Last updated: {0}", DateTime.Now.ToString());
         }
+
+        private Icon AppIcon {  get { return SystemIcons.Application; } }
 
         private string StatusToMessage(IPStatus status)
         {
